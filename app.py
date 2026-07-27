@@ -7,7 +7,7 @@ st.set_page_config(page_title="MovieIQ EDA",layout="wide")
 
 @st.cache_data
 def load_data():
-    df=pd.read_csv("data/movies.csv")
+    df=pd.read_csv("movies.csv")
     df=df[(df["budget"]>0)&(df["revenue"]>0)].copy()
     df["success"]=(df["revenue"]>df["budget"]).astype(int)
     df["genres"]=df["genres"].fillna("Unknown")
